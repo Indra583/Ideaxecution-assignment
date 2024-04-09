@@ -1,10 +1,8 @@
-// LostScreen.js
 
 import React from 'react';
 import { View, Text, Button } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { addGameToHistory } from '../utils/gameSlice';
-import { logout } from '../utils/userSlice';
 
 const LostScreen = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -12,9 +10,7 @@ const LostScreen = ({ navigation }) => {
   const gameHistory = useSelector((state) => state.game.gameHistory);
 
   const handlePlayAgain = () => {
-    // Add current game to history
     dispatch(addGameToHistory({ winner: 'AI', timestamp: new Date() }));
-    // Navigate to Game Play Screen
     navigation.navigate('GamePlay');
   };
 
